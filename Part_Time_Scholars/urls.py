@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from PTSapp import views as pts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', pts_views.home, name = 'home'),
+    path('job/', pts_views.job, name = 'job'),
+    path('jobpostpage/', pts_views.jobpostpage, name = 'jobpostpage'),
+    path('studentinfo/', pts_views.studentinfo, name = 'studentinfo'),
+    path('about/', pts_views.about, name = 'about'),
+    path('contact/', pts_views.contact, name = 'contact'),
+    path('profile/', pts_views.profile, name = 'profile')
+
 ]
