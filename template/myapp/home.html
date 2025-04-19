@@ -1,4 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="container mt-5">
+    <h1 class="mb-4">Available Part-Time Jobs</h1>
+    <div class="row">
+        {% for job in jobs %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job.name }}</h5>
+                        <p class="card-text">Type: {{ job.jobtype.name }}</p>
+                        <p class="card-text">Salary: Tk. {{ job.salary }}</p>
+                        <p class="card-text">Days: {{ job.days }}</p>
+                        <p class="card-text">{{ job.description }}</p>
+                        <span class="badge bg-success">{{ job.status }}</span>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No jobs available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

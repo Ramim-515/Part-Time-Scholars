@@ -1,34 +1,57 @@
 from django.shortcuts import render
 from .models import *
 
-# Create your views here.
-
 def home(request):
-
-    j_s = jobs.objects.all()
+    jobs_list = Job.objects.filter(status='available')
     context = {
-        'j_s' : j_s
+        'jobs': jobs_list
     }
-    return render(request, template_name='myapp/home.html')
+    return render(request, 'myapp/home.html', context)
 
 def job(request):
-    Job_Type = JobType.objects.all()
+    job_types = JobType.objects.all()
+    jobs_list = Job.objects.all()
     context = {
-        'job_type' : Job_Type
-            }
-    return render(request, template_name='myapp/job.html')
+        'job_types': job_types,
+        'jobs': jobs_list
+    }
+    return render(request, 'myapp/job.html', context)
+
+from django.shortcuts import render, redirect
+from .models import *
+from .forms import JobPostForm
 
 def jobpostpage(request):
-    return render(request, template_name='myapp/jobpostpage.html')
+    if request.method == 'POST':
+        form = JobPostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = JobPostForm()
+    
+    context = {
+        'form': form
+    }
+    return render(request, 'myapp/jobpostpage.html', context)
+
 
 def studentinfo(request):
-    return render(request, template_name='myapp/studentinfo.html')
+    students = Student.objects.all()
+    context = {
+        'students': students
+    }
+    return render(request, 'myapp/studentinfo.html', context)
 
 def about(request):
-    return render(request, template_name='myapp/about.html')
+    return render(request, 'myapp/about.html')
 
 def contact(request):
-    return render(request, template_name='myapp/contact.html')
+    return render(request, 'myapp/contact.html')
 
 def profile(request):
-    return render(request, template_name='myapp/profile.html')
+    students = Student.objects.all()
+    context = {
+        'students': students
+    }
+    return render(request, 'myapp/profile.html', context)
