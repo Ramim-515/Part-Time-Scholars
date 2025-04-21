@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container mt-3 text-end">
+    <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
+    <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+</div>
+
 <div class="container mt-5">
     <h1 class="mb-4">Available Part-Time Jobs</h1>
     <div class="row">

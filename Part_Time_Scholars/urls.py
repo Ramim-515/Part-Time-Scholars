@@ -1,31 +1,23 @@
-"""
-URL configuration for Part_Time_Scholars project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from PTSapp import views as pts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', pts_views.home, name = 'home'),
-    path('job/', pts_views.job, name = 'job'),
-    path('jobpostpage/', pts_views.jobpostpage, name = 'jobpostpage'),
-    path('studentinfo/', pts_views.studentinfo, name = 'studentinfo'),
-    path('about/', pts_views.about, name = 'about'),
-    path('contact/', pts_views.contact, name = 'contact'),
-    path('profile/', pts_views.profile, name = 'profile')
+    path('', pts_views.home, name='home'),
+    path('job/', pts_views.job, name='job'),
+    path('jobpostpage/', pts_views.jobpostpage, name='jobpostpage'),
+    path('studentinfo/', pts_views.studentinfo, name='studentinfo'),
+    path('about/', pts_views.about, name='about'),
+    path('contact/', pts_views.contact, name='contact'),
+    path('profile/', pts_views.profile, name='profile'),
+    path('student/<int:id>/', pts_views.profile, name='student_profile'),
 
+
+    # Auth Views
+    path('login/', pts_views.login_view, name='login'),
+    path('register/', pts_views.register_view, name='register'),
+    path('logout/', pts_views.logout_view, name='logout'),
 ]
+
+
