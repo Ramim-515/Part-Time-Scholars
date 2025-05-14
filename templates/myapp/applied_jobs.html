@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}My Applications{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">My Job Applications</h2>
+  {% if applications %}
+    <div class="list-group">
+      {% for app in applications %}
+        <a href="{% url 'job_details' app.job.id %}" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ app.job.title }}</h5>
+            <small>Applied on {{ app.applied_at|date:"M d, Y" }}</small>
+          </div>
+          <p class="mb-1">{{ app.job.description|truncatewords:20 }}</p>
+          <small>Location: {{ app.job.location }} | Type: {{ app.job.job_type }}</small>
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>You haven't applied to any jobs yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

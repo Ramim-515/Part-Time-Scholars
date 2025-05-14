@@ -1,0 +1,54 @@
+/* General page styles */
+body {
+    background-color: #b700ff;
+    color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Container spacing */
+  .container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Header text */
+  h1.display-4 {
+    font-weight: 700;
+    color: #2c3e50;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Lead paragraph under heading */
+  .lead {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
+  /* Card styles */
+  .card {
+    background-color: #db1212;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Card titles */
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 1rem;
+  }
+  
+  /* Card content text */
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  

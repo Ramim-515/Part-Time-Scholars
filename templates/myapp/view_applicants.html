@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Applicants for {{ job.title }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/applicants.css' %}">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-5 aos-init" data-aos="fade-up">Applicants for: <span class="text-primary">{{ job.title }}</span></h2>
+
+    {% if applications %}
+        <div class="row">
+            {% for app in applications %}
+            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                <div class="card applicant-card shadow border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ app.student.user.get_full_name }}</h5>
+                        <p class="card-text"><strong>Email:</strong> {{ app.student.user.email }}</p>
+                        {% if app.cover_letter %}
+                        <p class="card-text"><strong>Cover Letter:</strong><br> {{ app.cover_letter|linebreaksbr }}</p>
+                        {% endif %}
+                        {% if app.experience %}
+                        <p class="card-text"><strong>Experience:</strong><br> {{ app.experience|linebreaksbr }}</p>
+                        {% endif %}
+                        <p class="card-text text-muted"><small>Applied on {{ app.applied_at|date:"F j, Y" }}</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">No applicants have applied to this job yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
+{% endblock %}

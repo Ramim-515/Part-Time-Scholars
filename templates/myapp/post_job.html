@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Post a Job{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+  <div class="card shadow-lg p-4">
+    <h2 class="mb-4 text-primary">Post a New Job</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+          <label class="form-label">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <div class="text-danger">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Post Job</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> {% endblock %}
+{% block content %}
+
+<div class="container py-5">
+  <div class="text-center mb-5" data-aos="fade-up">
+    <h1 class="fw-bold text-primary">About PTS</h1>
+    <p class="lead text-muted">Helping students and employers connect through part-time, remote and internship
+      opportunities.</p>
+  </div>
+  <div class="row align-items-center mb-5">
+      <h3 class="fw-semibold mb-3">Who We Are</h3>
+      <p>PTS (Part-Time Solution) is a trusted digital platform designed to connect talented students with valuable job
+        opportunities including internships, remote roles, and part-time positions.</p>
+      <p>We’re committed to supporting students on their career journey while enabling businesses to find passionate,
+        skilled individuals quickly and efficiently.</p>
+    </div>
+  </div>
+  <div class="row text-center mb-5" data-aos="zoom-in-up">
+    <div class="col-md-4 mb-4">
+      <div class="card border-0 shadow-sm p-4 h-100"> <i class="bi bi-briefcase-fill text-primary fs-1 mb-3"></i>
+        <h5 class="fw-bold">Opportunities</h5>
+        <p>Explore verified job listings tailored for students and early professionals.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card border-0 shadow-sm p-4 h-100"> <i class="bi bi-building-check text-success fs-1 mb-3"></i>
+        <h5 class="fw-bold">Trusted Employers</h5>
+        <p>Partnered with leading companies & startups offering flexible work.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card border-0 shadow-sm p-4 h-100"> <i class="bi bi-person-lines-fill text-warning fs-1 mb-3"></i>
+        <h5 class="fw-bold">Student-Centric</h5>
+        <p>Built to empower students with job tools, profile visibility, and fast application.</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center" data-aos="fade-up"> <a href="{% url 'job_list' %}"
+      class="btn btn-outline-primary btn-lg">Browse Jobs</a> <a href="{% url 'register' %}"
+      class="btn btn-primary btn-lg ms-3">Join Us</a> </div>
+</div> {% endblock %}
+{% block extra_js %}
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script> AOS.init(); </script>
+{% endblock %}

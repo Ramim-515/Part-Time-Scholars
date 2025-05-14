@@ -1,0 +1,57 @@
+/* job_details.css */
+.container {
+    max-width: 800px;
+}
+
+.card {
+    border-radius: 12px;
+    border: none;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.card-title {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.text-muted {
+    color: #7f8c8d !important;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.bg-info {
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
+}
+
+.list-group-item {
+    border-left: none;
+    border-right: none;
+}
+
+.list-group-item:first-child {
+    border-top: none;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.alert {
+    border-radius: 8px;
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Apply to {{ job.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Apply to <span class="text-primary">{{ job.title }}</span></h2>
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="cover_letter" class="form-label">Cover Letter</label>
+      <textarea name="cover_letter" id="cover_letter" class="form-control" rows="5" placeholder="Write your cover letter here..."></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="experience" class="form-label">Previous Experience</label>
+      <textarea name="experience" id="experience" class="form-control" rows="4" placeholder="Describe any relevant past experiences..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit Application</button>
+  </form>
+</div>
+{% endblock %}
+

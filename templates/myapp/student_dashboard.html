@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5"> <h2 class="mb-4 text-primary">Welcome, {{ user.first_name|default:user.username }}!</h2> <div class="row"> <!-- Profile Summary Card --> <div class="col-md-4"> <div class="card shadow-sm mb-4"> <div class="card-header bg-primary text-white">Profile Summary</div> <div class="card-body text-center"> {% if profile.photo %} <img src="{{ profile.photo.url }}" class="rounded-circle mb-3" width="100" height="100" alt="Profile Photo"> {% else %} <img src="{% static 'images/default-user.png' %}" class="rounded-circle mb-3" width="100" height="100" alt="Default Photo"> {% endif %} <h5>{{ user.get_full_name|default:user.username }}</h5> <p class="text-muted">{{ user.email }}</p> <a href="{% url 'edit_student_profile' %}" class="btn btn-sm btn-outline-primary">Edit Profile</a> </div> </div> </div>
+<!-- Application & Job Summary -->
+<div class="col-md-8">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-success text-white">My Applications</div>
+      <div class="card-body">
+        {% if applications %}
+          <ul class="list-group">
+            {% for app in applications %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ app.job.title }}
+                <span class="badge bg-primary">{{ app.applied_at|date:"M d, Y" }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-muted">You have not applied to any jobs yet.</p>
+        {% endif %}
+      </div>
+    </div>
+  
+    <div class="card shadow-sm">
+      <div class="card-header bg-info text-white">Available Jobs</div>
+      <div class="card-body">
+        {% if jobs %}
+          <ul class="list-group">
+            {% for job in jobs %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ job.title }} - {{ job.location }}
+                <a href="{% url 'job_detail' job.id %}" class="btn btn-sm btn-outline-info">View</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-muted">No job postings available at the moment.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div> </div> {% endblock %}  

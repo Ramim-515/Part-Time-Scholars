@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ job.title }} - Job Details{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title mb-3">{{ job.title }}</h2>
+      <h6 class="text-muted mb-4">
+        Posted by {{ job.employer.company_name }} on {{ job.posted_at|date:"F d, Y" }}
+      </h6>
+
+      <div class="mb-3">
+        <span class="badge bg-info text-dark me-2">{{ job.job_type|title }}</span>
+        <span class="badge bg-secondary">{{ job.location }}</span>
+      </div>
+
+      <p class="card-text fs-6">{{ job.description|linebreaks }}</p>
+
+      <ul class="list-group list-group-flush my-4">
+        <li class="list-group-item">
+          <strong>Application Deadline:</strong> {{ job.deadline|date:"F d, Y" }}
+        </li>
+        <li class="list-group-item">
+          <strong>Company Website:</strong>
+          {% if job.employer.website %}
+            <a href="{{ job.employer.website }}" target="_blank">{{ job.employer.website }}</a>
+          {% else %}
+            <em>Not provided</em>
+          {% endif %}
+        </li>
+      </ul>
+      {% if user.is_authenticated and user.role == 'student' %}
+       <form method="post" action="{% url 'apply_job' job.id %}">
+       {% csrf_token %}
+       <button type="submit" class="btn btn-primary">Apply for this Job</button>
+       </form>
+      
+      {% else %}
+        <div class="alert alert-info mt-3" role="alert">
+          <strong>Login as a student</strong> to apply for this job.
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

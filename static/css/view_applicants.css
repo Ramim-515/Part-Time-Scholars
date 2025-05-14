@@ -1,0 +1,45 @@
+/* view_applicants.css */
+.container {
+    max-width: 1000px;
+}
+
+.list-group-item {
+    border-radius: 12px !important;
+    margin-bottom: 15px !important;
+    transition: all 0.3s ease;
+    border: none !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.list-group-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.shadow-sm {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+h5 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #7f8c8d !important;
+}
+
+strong {
+    color: #2c3e50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .list-group-item {
+        padding: 15px !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}

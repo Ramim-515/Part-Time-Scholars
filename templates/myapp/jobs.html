@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Job Listings{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4 text-center">Explore Available Jobs</h2>
+  <div class="row">
+    
+    <!-- FILTER SIDEBAR -->
+    <div class="col-md-3">
+      <form method="get" class="card p-3 shadow-sm">
+        <h5>Filter Jobs</h5>
+
+        <!-- Location Filter -->
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" class="form-control" name="location" id="location" value="{{ request.GET.location }}">
+        </div>
+
+        <!-- Job Type Filter -->
+        <div class="mb-3">
+          <label for="job_type" class="form-label">Job Type</label>
+          <select name="job_type" id="job_type" class="form-select">
+            <option value="">All</option>
+            <option value="part-time" {% if request.GET.job_type == "part-time" %}selected{% endif %}>Part-Time</option>
+            <option value="full-time" {% if request.GET.job_type == "full-time" %}selected{% endif %}>Full-Time</option>
+            <option value="remote" {% if request.GET.job_type == "remote" %}selected{% endif %}>Remote</option>
+          </select>
+        </div>
+
+        <!-- Salary Filter -->
+        <div class="mb-3">
+          <label for="min_salary" class="form-label">Minimum Salary</label>
+          <input type="number" class="form-control" name="min_salary" id="min_salary" value="{{ request.GET.min_salary }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+      </form>
+    </div>
+
+    <!-- JOB LISTING -->
+    <div class="col-md-9">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for job in jobs %}
+          <div class="col">
+            <div class="card h-100 shadow border-light">
+              <div class="card-body">
+                <h5 class="card-title">{{ job.title }}</h5>
+                <p class="card-text text-muted">{{ job.description|truncatewords:25 }}</p>
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Type:</strong> {{ job.job_type|capfirst }}</p>
+                <p><strong>Salary:</strong> {{ job.salary }}</p>
+                <p><strong>Deadline:</strong> {{ job.deadline }}</p>
+              </div>
+              <div class="card-footer text-end bg-white">
+                <a href="{% url 'job_details' job.id %}" class="btn btn-outline-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        {% empty %}
+          <p class="text-center text-muted">No job postings match your criteria.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+/* student_dashboard.css */
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+}
+
+.card-header {
+    font-weight: 600;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.bg-primary {
+    background-color: #3498db !important;
+}
+
+.bg-success {
+    background-color: #2ecc71 !important;
+}
+
+.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+.text-primary {
+    color: #3498db !important;
+}
+
+.list-group-item {
+    border-radius: 8px !important;
+    margin-bottom: 8px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.rounded-circle {
+    object-fit: cover;
+}
+
+.btn-outline-primary {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.text-muted {
+    color: #7f8c8d !important;
+}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> {% endblock %}
+{% block content %}
+
+<div class="container py-5" data-aos="fade-up">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-primary">Get in Touch</h1>
+    <p class="lead text-muted">We'd love to hear from you. Send us a message and we’ll respond as soon as we can.</p>
+  </div>
+  <div class="row g-4"> <!-- Contact Form -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4 border-0">
+        <h4 class="mb-4 text-primary">Send a Message</h4>
+        <form method="post" action=""> {% csrf_token %} <div class="form-floating mb-3"> <input type="text"
+              class="form-control" id="name" name="name" placeholder="John Doe" required> <label for="name">Your
+              Name</label> </div>
+          <div class="form-floating mb-3"> <input type="email" class="form-control" id="email" name="email"
+              placeholder="john@example.com" required> <label for="email">Your Email</label> </div>
+          <div class="form-floating mb-3"> <textarea class="form-control" id="message" name="message"
+              style="height: 150px;" required placeholder="Write your message..."></textarea> <label
+              for="message">Message</label> </div> <button type="submit" class="btn btn-primary w-100">📨 Send
+            Message</button>
+        </form>
+      </div>
+    </div>
+    <!-- Contact Info & Map -->
+<div class="col-md-6">
+  <div class="card shadow-sm p-4 border-0">
+    <h4 class="mb-3 text-primary">Our Location</h4>
+    <p class="mb-1"><i class="bi bi-geo-alt-fill text-danger"></i> ABC Tech Campus, Knowledge Park, City 10100</p>
+    <p class="mb-1"><i class="bi bi-envelope-fill text-success"></i> support@placementportal.com</p>
+    <p class="mb-3"><i class="bi bi-telephone-fill text-info"></i> +91 98765 43210</p>
+    <div class="ratio ratio-16x9 rounded overflow-hidden">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.110167024018!2d-122.42156768468277!3d37.778519779758746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580889d8b2b3d%3A0x5b928c17d92e943f!2sTwitter%20HQ!5e0!3m2!1sen!2sus!4v1655332163361!5m2!1sen!2sus"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+</div> </div> {% endblock %}
+{% block extra_js %}
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script> AOS.init(); </script>
+{% endblock %}

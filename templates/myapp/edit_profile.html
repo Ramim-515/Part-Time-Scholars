@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="col-md-8 offset-md-2">
+    <div class="card p-4 shadow-sm border-0 rounded-4">
+      <h3 class="mb-4">✏️ Edit Your Profile</h3>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Update Profile</button>
+        <a href="{% if user.role == 'student' %}{% url 'student_profile' %}{% else %}{% url 'employer_dashboard' %}{% endif %}" class="btn btn-secondary ms-2">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

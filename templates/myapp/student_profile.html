@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="card shadow-lg border-0 rounded-4 p-4">
+        <div class="text-center mb-4">
+          {% if profile.photo %}
+            <img src="{{ profile.photo.url }}" class="rounded-circle shadow" alt="Profile Image" width="130" height="130">
+          {% else %}
+            <div class="bg-secondary text-white rounded-circle d-flex justify-content-center align-items-center mx-auto shadow" style="width: 130px; height: 130px;">
+              <span style="font-size: 2rem;">{{ request.user.username|slice:":1"|upper }}</span>
+            </div>
+          {% endif %}
+        </div>
+
+        <h2 class="text-center mb-3">{{ request.user.get_full_name|default:request.user.username }}</h2>
+        <p class="text-muted text-center">{{ request.user.email }}</p>
+
+        <hr>
+
+        <div class="mb-3">
+          <h5>📞 Contact</h5>
+          <p><strong>Phone:</strong> {{ profile.phone|default:"Not provided" }}</p>
+        </div>
+
+        <div class="mb-3">
+          <h5>🎓 Education</h5>
+          <p>{{ profile.education|default:"Not provided" }}</p>
+        </div>
+
+        <div class="mb-3">
+          <h5>💡 Skills</h5>
+          <p>{{ profile.skills|default:"Not provided" }}</p>
+        </div>
+
+        {% if profile.resume %}
+        <div class="text-center my-3">
+          <a href="{{ profile.resume.url }}" class="btn btn-outline-primary" download>
+            📄 Download Resume
+          </a>
+        </div>
+        {% endif %}
+
+        <div class="text-center mt-4 d-flex justify-content-center gap-3">
+          <a href="{% url 'edit_profile' %}" class="btn btn-primary">
+            ✏️ Edit Profile
+          </a>
+        
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger">
+              🚪 Logout
+            </button>
+          </form>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

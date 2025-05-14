@@ -1,0 +1,25 @@
+.profile-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;           /* Crops image to fit within box */
+    border-radius: 50%;          /* Makes it circular */
+    border: 4px solid #dee2e6;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.btn {
+    border-radius: 30px;
+    font-weight: 500;
+    padding: 6px 15px;
+}
+
+.table-responsive {
+    border-radius: 12px;
+    overflow-x: auto;
+}

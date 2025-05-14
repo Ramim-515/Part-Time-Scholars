@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Welcome to PTS{% endblock %}
+
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <script src="{% static 'js/home.js' %}"></script>
+
+</head>
+<div class="container py-5 text-center">
+  <h1 class="display-4 fw-bold text-primary">Welcome to PTS</h1>
+  <p class="lead text-muted mb-4">Your trusted platform for student part-time, internship, and remote job opportunities.</p>
+  <a href="{% url 'register' %}" class="btn btn-primary btn-lg">Join Now</a>
+  <a href="{% url 'job_list' %}" class="btn btn-outline-primary btn-lg ms-3">Browse Jobs</a>
+</div>
+
+<div class="container py-4">
+  <h2 class="text-center mb-4">Featured Jobs</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for job in jobs %}
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.title }}</h5>
+            <p class="card-text">{{ job.description|truncatewords:20 }}</p>
+            <span class="badge bg-info text-dark">{{ job.job_type }}</span>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-muted">{{ job.location }}</small>
+            <a href="{% url 'job_details' job.id %}" class="btn btn-sm btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-center">No jobs available at the moment.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

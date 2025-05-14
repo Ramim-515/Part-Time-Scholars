@@ -1,0 +1,33 @@
+/* contact.css */
+.container {
+    max-width: 1200px;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.ratio {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2, h4 {
+    color: #2c3e50;
+}
+
+.text-muted {
+    color: #7f8c8d !important;
+}
+
+strong {
+    color: #2c3e50;
+}

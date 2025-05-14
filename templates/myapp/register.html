@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/css/register.css">
+    <script defer src="/static/js/register.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="background-video">
+    <source src="/static/videos/bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div class="register-container">
+    <div class="register-card">
+        <div class="icon-box">
+            <i class="fas fa-user-plus"></i>
+        </div>
+        <h2>Create an Account</h2>
+        <p>Start your journey with us today.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="role-toggle">
+                <div class="toggle-button student active">Student</div>
+                <div class="toggle-button employer">Employer</div>
+                <input type="hidden" name="role" id="id_role" value="student">
+            </div>
+
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </div>
+
+            <button type="submit" class="btn-primary">Get Started</button>
+
+            <div class="social-auth">
+                <p>Or sign in with</p>
+                <div class="social-buttons">
+                    <a href="#" class="google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="apple"><i class="fab fa-apple"></i></a>
+                </div>
+            </div>
+        </form>
+        <p class="login-message">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+</div>
+</body>
+</html>
+

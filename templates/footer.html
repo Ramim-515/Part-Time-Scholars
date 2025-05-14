@@ -1,0 +1,52 @@
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>About PTS</h5>
+        <p>Your trusted platform for students and employers to connect, share opportunities, and build careers together.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'home' %}" class="text-decoration-none text-light">Home</a></li>
+          <li><a href="{% url 'about' %}" class="text-decoration-none text-light">About</a></li>
+          <li><a href="{% url 'contact' %}" class="text-decoration-none text-light">Contact</a></li>
+          <li><a href="{% url 'job_list' %}" class="text-decoration-none text-light">Jobs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@pts.com</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Location: 123 Main St, City, Country</p>
+        <div class="mt-3">
+          <a href="https://facebook.com" class="text-light me-3 social-icon" data-bs-toggle="tooltip" title="Facebook" target="_blank"><i class="bi bi-facebook fs-4"></i></a>
+          <a href="https://twitter.com" class="text-light me-3 social-icon" data-bs-toggle="tooltip" title="Twitter" target="_blank"><i class="bi bi-twitter-x fs-4"></i></a>
+          <a href="https://instagram.com" class="text-light me-3 social-icon" data-bs-toggle="tooltip" title="Instagram" target="_blank"><i class="bi bi-instagram fs-4"></i></a>
+          <a href="https://linkedin.com" class="text-light me-3 social-icon" data-bs-toggle="tooltip" title="LinkedIn" target="_blank"><i class="bi bi-linkedin fs-4"></i></a>
+          <a href="https://youtube.com" class="text-light social-icon" data-bs-toggle="tooltip" title="YouTube" target="_blank"><i class="bi bi-youtube fs-4"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="bg-light" />
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 PTS. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .social-icon:hover {
+    color: #040308 !important; /* Bootstrap's cyan */
+  }
+</style>
+
+<script>
+  // Enable tooltips
+  document.addEventListener('DOMContentLoaded', function () {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  });
+</script>

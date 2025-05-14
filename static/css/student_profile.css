@@ -1,0 +1,62 @@
+/* student_profile.css */
+.container {
+    max-width: 800px;
+}
+
+.card {
+    border-radius: 16px;
+    border: none;
+}
+
+.rounded-4 {
+    border-radius: 16px !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+.rounded-circle {
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.text-muted {
+    color: #7f8c8d !important;
+}
+
+hr {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+h5 {
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.btn-outline-primary {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+/* Default avatar styling */
+.bg-secondary {
+    background-color: #6c757d !important;
+}

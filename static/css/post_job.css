@@ -1,0 +1,47 @@
+/* post_job.css */
+.container {
+    max-width: 800px;
+}
+
+.card {
+    border-radius: 12px;
+    border: none;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.text-primary {
+    color: #3498db !important;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-control, .form-select, .form-textarea {
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+.form-control:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+    outline: none;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+    width: 100%;
+}

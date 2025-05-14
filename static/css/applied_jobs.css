@@ -1,0 +1,29 @@
+/* applied_jobs.css */
+.container {
+    max-width: 900px;
+}
+
+.list-group-item {
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.list-group-item h5 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.list-group-item small {
+    color: #7f8c8d;
+}
+
+.list-group-item p {
+    color: #34495e;
+}

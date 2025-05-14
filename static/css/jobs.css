@@ -1,0 +1,43 @@
+/* jobs.css */
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #7f8c8d !important;
+}
+
+.card-footer {
+    background-color: white;
+    border-top: none;
+}
+
+.btn-outline-primary {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.border-light {
+    border: 1px solid rgba(0,0,0,0.05) !important;
+}
